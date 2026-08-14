@@ -6,35 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <div style="text-align:center; background-color:lightblue; height:100px; width:100%; padding-top:20px;">
-        <ul>
-            <li>for tea enter 1</li>
-            <li>for coffee enter 2</li>
-            <li>for sugar enter 3</li>
-            <li>for pulse enter 4</li>
-        </ul>
-    </div>
     <script>
         //we will take values from user and store in object
-        const tea=
+        const store=
         {
-            cost:450,
-            units:"per kg"
+            tea:450,
+            coffee:500,
+            sugar:600,
+            pulse:700
         }
-        const coffee={
-            cost:600,
-            units:"per kg"
+        const x=prompt("enter the product");
+        if(store[x]){
+            const quant=prompt("enter the quantity");
+            const total=store[x]*quant;
         }
-        const sugar=
-        {
-            cost:150,
-            units:"per kg"
-        }
-        const pulse=
-        {
-            cost:200,
-            units:"per kg"
-        }
+        document.write("Total amout is:"+total);
     </script>
 </body>
 </html>
