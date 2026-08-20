@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "Alice", "age": 28, "role": "developer", "active": true, "salary": 70000 },
+  { "id": 2, "name": "Bob", "age": 34, "role": "designer", "active": false, "salary": 65000 },
+  { "id": 3, "name": "Charlie", "age": 22, "role": "intern", "active": true, "salary": 30000 },
+  { "id": 4, "name": "Diana", "age": 41, "role": "manager", "active": true, "salary": 90000 },
+  { "id": 5, "name": "Evan", "age": 29, "role": "developer", "active": false, "salary": 72000 }
+]
