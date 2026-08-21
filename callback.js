@@ -1,12 +1,34 @@
 
-function sum1(x,y)
+const username="Pratha";
+const password="3hi45";
+function usernamecheck(givenUN)
 {
-    return x+y;
+    if(givenUN==username)
+    {
+        return true;
+    }
+    return false;
 }
-function sumWithMsg(clbk,msg)
+function pwcheck(givenPW)
 {
-    const result=clbk(20,30);
-    const fresult="HI"+msg+"your score is :"+result;
+    if(givenPW==password)
+    {
+        return true;
+    }
+    return false;
+}
+
+function checker(clbk,msg)
+{
+    const result=clbk("Pratha");
+    const fresult="HI"+msg+"your username is :"+result;
     console.log(fresult);
 }
-sumWithMsg(sum1,"Pratha");
+function pwchecker(clbk,msg)
+{
+    const result=clbk("12345");
+    const fresult="HI"+msg+"your password is :"+result;
+    console.log(fresult);
+}
+checker(usernamecheck,"Pratha");
+pwchecker(pwcheck,"12345");
