@@ -3,47 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bus Booking Document</title>
     <style>
-        p{
-            margin-left:12px;
-            color:aliceblue;
+        p 
+        {
+            margin-left: 12px;
+            color: aliceblue;
         }
-        h3{
-            margin-left:50px;
-            color:aqua;
+        h3 
+        {
+            margin-left: 50px;
+            color: aqua;
+        }
+        .radio-container {
+            margin-left: 12px;
+            color: aliceblue;
         }
     </style>
 </head>
 <body>
-    <div style ="border:2px solid blue; width:400px;height:1000px; background-color:lightcoral;">
+    <form id="bookingForm" style="border:2px solid blue; width:400px; height:1000px; background-color:lightcoral;">
         <center>
-            <img src="https://thumbs.dreamstime.com/b/bus-ticket-bus-front-view-logo-design-buying-tickets-online-transport-service-vector-design-public-transportation-ticket-245861626.jpg" alt="" height="100px" width="100px" style="border-radius: 50%; margin-top: 10%;">
+            <img src="https://thumbs.dreamstime.com/b/bus-ticket-bus-front-view-logo-design-buying-tickets-online-transport-service-vector-design-public-transportation-ticket-245861626.jpg" alt="Bus Ticket Logo" height="100px" width="100px" style="border-radius: 50%; margin-top: 10%;">
             <h2 style="color: white;">Bus Booking System</h2>
         </center>
+        
         <h3>User Information</h3>
-        <p>User Name:<input type ="text"></p>
-        <p>User Age:<input type="number"></p>
-        <p>Aadhar Number:<input type="number"></p>
-        <p>Select your city:<select name="" id="">
-            <option value="">Delhi</option>
-            <option value="">Ghaziabad</option>
-            <option value="">Meerut</option>
-            <option value="">Bareilly</option>
-        </select></p>
-        <p>Select your traveling date:<input type="date"></p>
+        <p>User Name: <input type="text" id="UN" required></p>
+        <p>User Age: <input type="number" required></p>
+        <p>Aadhar Number: <input type="number" required></p>
+        <p>Select your city: 
+            <select name="citySel" id="citySelect">
+                <option value="Delhi">Delhi</option>
+                <option value="Ghaziabad">Ghaziabad</option>
+                <option value="Meerut">Meerut</option>
+                <option value="Bareilly">Bareilly</option>
+            </select>
+        </p>
+        <p>Select your traveling date: <input type="date" id="dati" required></p>
+        
         <h3>Bus Information</h3>
         <p>Select your bus type:</p>
-        <input type="radio" name="bus" id="">AC-1000Rs
-        <input type="radio" name="bus" id="">Non-AC-500Rs
-        <p>Select your seat<select name ="" id ="">
-            <option value ="">1</option>
-            <option value ="">2</option>
-            <option value ="">3</option>
-            <option value ="">4</option>
-            <option value ="">5</option>
-        </select></p>
-        <input type="submit" value="click for save">
-    </div>
+        <div class="radio-container">
+            <input type="radio" name="busType" value="AC" checked> AC - 1000 Rs <br>
+            <input type="radio" name="busType" value="Non-AC"> Non-AC - 500 Rs
+        </div>
+        
+        <p>Select your seat: 
+            <select name="numberS" id="numberofS">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </p>
+        <input type="submit" value="Click to Save" style="margin-left: 12px; margin-top: 15px; padding: 5px 15px;">
+    </form>
+
+    <script>
+        document.getElementById("bookingForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let userName = document.getElementById("UN").value;
+            let city = document.getElementById("citySelect").value;
+            let date = document.getElementById("dati").value;
+            let seatCount = parseInt(document.getElementById("numberofS").value);
+            
+            let selectedBus = document.querySelector('input[name="busType"]:checked').value;
+
+            let totalAmount = 0;
+            if (selectedBus === "AC") {
+                totalAmount = seatCount * 1000;
+            } else {
+                totalAmount = seatCount * 500;
+            }
+
+            alert("Welcome: " + userName);
+            alert("Your chosen city is: " + city);
+            alert("The date of travel is: " + date);
+            alert("Your total is: " + totalAmount + " Rs");
+        });
+    </script>
 </body>
 </html>
