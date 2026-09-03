@@ -17,6 +17,13 @@ function test3(cb){
         cb();
     },200)
 }
+function test4(cb){
+    setTimeout(() => {
+        console.log("task 4");
+        cb();
+    },2000)
+}
+
 
 test1(() =>{
     test2(() => {
