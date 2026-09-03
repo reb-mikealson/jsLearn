@@ -21,12 +21,14 @@ function test4(cb){
     setTimeout(() => {
         console.log("task 4");
         cb();
-    },2000)
+    },100)
 }
 
 
 test1(() =>{
     test2(() => {
-        test3();
+        test3(() => {
+            test4();
+        });
     })
 })
