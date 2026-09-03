@@ -15,10 +15,6 @@
             margin-left: 50px;
             color: aqua;
         }
-        .radio-container {
-            margin-left: 12px;
-            color: aliceblue;
-        }
     </style>
 </head>
 <body>
@@ -27,11 +23,10 @@
             <img src="https://thumbs.dreamstime.com/b/bus-ticket-bus-front-view-logo-design-buying-tickets-online-transport-service-vector-design-public-transportation-ticket-245861626.jpg" alt="Bus Ticket Logo" height="100px" width="100px" style="border-radius: 50%; margin-top: 10%;">
             <h2 style="color: white;">Bus Booking System</h2>
         </center>
-        
         <h3>User Information</h3>
-        <p>User Name: <input type="text" id="UN" required></p>
-        <p>User Age: <input type="number" required></p>
-        <p>Aadhar Number: <input type="number" required></p>
+        <p>User Name: <input type="text" id="UN"></p>
+        <p>User Age: <input type="number"></p>
+        <p>Aadhar Number: <input type="number"></p>
         <p>Select your city: 
             <select name="citySel" id="citySelect">
                 <option value="Delhi">Delhi</option>
@@ -40,15 +35,13 @@
                 <option value="Bareilly">Bareilly</option>
             </select>
         </p>
-        <p>Select your traveling date: <input type="date" id="dati" required></p>
-        
+        <p>Select your traveling date: <input type="date" id="dati"></p>
         <h3>Bus Information</h3>
         <p>Select your bus type:</p>
         <div class="radio-container">
             <input type="radio" name="busType" value="AC" checked> AC - 1000 Rs <br>
             <input type="radio" name="busType" value="Non-AC"> Non-AC - 500 Rs
         </div>
-        
         <p>Select your seat: 
             <select name="numberS" id="numberofS">
                 <option value="1">1</option>
@@ -60,25 +53,20 @@
         </p>
         <input type="submit" value="Click to Save" style="margin-left: 12px; margin-top: 15px; padding: 5px 15px;">
     </form>
-
     <script>
         document.getElementById("bookingForm").addEventListener("submit", function(event) {
             event.preventDefault();
-
             let userName = document.getElementById("UN").value;
             let city = document.getElementById("citySelect").value;
             let date = document.getElementById("dati").value;
             let seatCount = parseInt(document.getElementById("numberofS").value);
-            
             let selectedBus = document.querySelector('input[name="busType"]:checked').value;
-
             let totalAmount = 0;
             if (selectedBus === "AC") {
                 totalAmount = seatCount * 1000;
             } else {
                 totalAmount = seatCount * 500;
             }
-
             alert("Welcome: " + userName);
             alert("Your chosen city is: " + city);
             alert("The date of travel is: " + date);
